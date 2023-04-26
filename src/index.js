@@ -2,6 +2,8 @@ let divCollect = document.querySelector('#toy-collection')
 let gameDropdown = document.querySelector('#gameSelection')
 let amiiboData = null
 let selectedGameSeries = "blank"
+var card = document.getElementById("toy-collection");
+
 
 function getAmiibo() {
     return fetch('https://www.amiiboapi.com/api/amiibo')
@@ -86,8 +88,18 @@ function intEventListeners() {
   })
 }
 
+function intMouseOver() {
+  divCollect.addEventListener('mouseover',function(){
+    divCollect.class="card-2";
+ })
+ divCollect.addEventListener('mouseleave',function(){
+  divCollect.class="card";
+ })
+}
+
 
 document.addEventListener("DOMContentLoaded", (event) => {
   intData()
   intEventListeners()
+  intMouseOver()
 });

@@ -89,11 +89,11 @@ function intEventListeners() {
 }
 
 function intMouseOver() {
-  divCollect.addEventListener('mouseover',function(){
-    divCollect.class="card-2";
+  div.card.addEventListener('mouseover', (event) => {
+    div.card.class = "card-2";
  })
- divCollect.addEventListener('mouseleave',function(){
-  divCollect.class="card";
+ div.card.addEventListener('mouseleave',function(){
+  div.card.class = "card";
  })
 }
 

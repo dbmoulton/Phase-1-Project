@@ -1,32 +1,56 @@
 let divCollect = document.querySelector('#toy-collection')
 let gameDropdown = document.querySelector('#gameSelection')
-
+let amiiboData = null
+let selectedGameSeries = "blank"
 
 function getAmiibo() {
     return fetch('https://www.amiiboapi.com/api/amiibo')
       .then(res => res.json())
 }
 
-function makeGameList(amiibo){
+function makeGameList(){
+  let addedGames = []
+  amiiboData.forEach(data => {
+    if(!isGameInList(data.gameSeries, addedGames)) {
+      addGame(data, addedGames)
+    }
+  })
+
+}
+
+function isGameInList(name, addedGames) {
+  return addedGames.indexOf(name) !== -1
+}
+
+function addGame(amiibo, addedGames){
   let gameOption = document.createElement('option')
-  if (gameDropdown.value === amiibo.gameSeries) continue;
   gameOption.setAttribute('value', amiibo.gameSeries)
   gameOption.innerText = `${amiibo.gameSeries}`
   gameDropdown.append(gameOption)
+  addedGames.push(amiibo.gameSeries)
 }
 
-getAmiibo().then(amiibos => {
-  console.log(amiibos)
-  amiibos.amiibo.forEach(data => {
-    makeGameList(data)
+function removeChildren(node) {
+  while (node.firstChild) {
+    node.removeChild(node.firstChild);
+  }
+}
+
+function renderAmiibo() {
+  removeChildren(divCollect)
+  amiiboData.forEach(data => {
+    conditionalRender(data)
   })
-})
+}
 
+function conditionalRender(amiibo) {
+  if((selectedGameSeries !== amiibo.gameSeries) && (selectedGameSeries !== "blank")) {
+    return
+  }
+  renderAmiiboHtml(amiibo) 
+}
 
-
-
-
-function renderAmiibo(amiibo) {
+function renderAmiiboHtml(amiibo) {
   let h2 = document.createElement('h2')
   h2.innerText = amiibo.name
 
@@ -44,11 +68,26 @@ function renderAmiibo(amiibo) {
 }
 
 
-// getAmiibo().then(amiibos => {
-//   console.log(amiibos)
-//   amiibos.amiibo.forEach(data => {
-//     renderAmiibo(data)
-//   })
-// })
 
 
+function intData() {
+  getAmiibo().then(amiibos => {
+  amiiboData = amiibos.amiibo
+  renderAmiibo()
+  makeGameList()
+  })
+}
+
+function intEventListeners() {
+  document.querySelector('#gameSelection').addEventListener("change", (event) =>{
+    selectedGameSeries = event.target.value
+    renderAmiibo()
+
+  })
+}
+
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  intData()
+  intEventListeners()
+});

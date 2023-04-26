@@ -2,8 +2,8 @@ let divCollect = document.querySelector('#toy-collection')
 let gameDropdown = document.querySelector('#gameSelection')
 let amiiboData = null
 let selectedGameSeries = "blank"
-var card = document.getElementById("toy-collection");
-
+let searchInput = ""
+let searchBar = document.querySelector(`#myInput`)
 
 function getAmiibo() {
     return fetch('https://www.amiiboapi.com/api/amiibo')
@@ -49,6 +49,9 @@ function conditionalRender(amiibo) {
   if((selectedGameSeries !== amiibo.gameSeries) && (selectedGameSeries !== "blank")) {
     return
   }
+  if((searchInput !== "") && (amiibo.Name.toLowerCase().includes(searchInput))) {
+    return
+  }
   renderAmiiboHtml(amiibo) 
 }
 
@@ -81,7 +84,7 @@ function intData() {
 }
 
 function intEventListeners() {
-  document.querySelector('#gameSelection').addEventListener("change", (event) =>{
+  gameDropdown.addEventListener("change", (event) =>{
     selectedGameSeries = event.target.value
     renderAmiibo()
 
@@ -95,6 +98,13 @@ function intMouseOver() {
  div.card.addEventListener('mouseleave',function(){
   div.card.class = "card";
  })
+}
+
+function intSearchBar() {
+  searchBar.addEventListener(`mouseup`, (event) => {
+    searchInput = searchBar.value.toLowerCase();
+    renderAmiibo()
+  })
 }
 
 

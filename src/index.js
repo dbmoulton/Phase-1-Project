@@ -46,9 +46,9 @@ function renderAmiibo() {
 }
 
 function conditionalRender(amiibo) {
-  if((selectedGameSeries !== amiibo.gameSeries) && (selectedGameSeries !== "blank")) {
-    return
-  }
+  // if((selectedGameSeries !== amiibo.gameSeries) && (selectedGameSeries !== "blank")) {
+  //   return
+  // }
   if((searchInput !== "") && (amiibo.Name.toLowerCase().includes(searchInput))) {
     return
   }
@@ -101,8 +101,9 @@ function intMouseOver() {
 }
 
 function intSearchBar() {
-  searchBar.addEventListener(`mouseup`, (event) => {
-    searchInput = searchBar.value.toLowerCase();
+  searchBar.addEventListener(`keyup`, (event) => {
+    searchInput = searchBar.value;
+    searchInput = searchInput.toLowerCase();
     renderAmiibo()
   })
 }
@@ -112,4 +113,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
   intData()
   intEventListeners()
   intMouseOver()
+  intSearchBar()
 });

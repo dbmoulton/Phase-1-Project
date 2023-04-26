@@ -3,16 +3,16 @@ body {
   font-family: monospace;
 }
 
-#toy-header {
+#amiibo-header {
   display: flex;
   justify-content: center;
-  background: #515DA2;
+  background: #e4e723;
   opacity: .8;
   height: 7rem;
   padding: 1rem;
 }
 
-#toy-header img {
+#amiibo-header img {
   height: 6rem;
   width: auto;
 }

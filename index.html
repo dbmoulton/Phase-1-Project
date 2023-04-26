@@ -2,47 +2,22 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title>Toy Tale</title>
+    <title>Amiibo Collection</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div id="toy-header">
+    <div id="amiibo-header">
       <img
-        src="https://fontmeme.com/permalink/180719/67429e6afec53d21d64643101c43f029.png"
-        alt="toy-header"
+        src="https://www.mariowiki.com/images/thumb/d/d2/Amiibo_Logo.svg/800px-Amiibo_Logo.svg.png"
+        alt="amiibo-header"
       />
     </div>
 
-    <div class="container">
-      <form class="add-toy-form">
-        <h3>Create a toy!</h3>
-
-        <input
-          type="text"
-          name="name"
-          value=""
-          placeholder="Enter a toy's name..."
-          class="input-text"
-        />
-        <br />
-        <input
-          type="text"
-          name="image"
-          value=""
-          placeholder="Enter a toy's image URL..."
-          class="input-text"
-        />
-        <br />
-        <input
-          type="submit"
-          name="submit"
-          value="Create Toy"
-          class="submit"
-        />
-      </form>
-    </div>
     <p style="text-align:center">
-      Andy needs your help! <button id="new-toy-btn">Add a new toy!</button>
+      <b>Filter By Game</b>
+      <select name="game" id="gameSelection">
+        <option value="blank" selected>---</option>
+      </select>
     </p>
 
     <div id="toy-collection"></div>

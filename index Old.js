@@ -1,6 +1,3 @@
-const addBtn = document.querySelector('#new-toy-btn')
-const toyForm = document.querySelector('.container')
-let addToy = false
 let divCollect = document.querySelector('#toy-collection')
 
 
@@ -30,26 +27,26 @@ function postToy(toy_data) {
     })
 }
 
-function likes(e) {
-  e.preventDefault()
-  let more = parseInt(e.target.previousElementSibling.innerText) + 1
+// function likes(e) {
+//   e.preventDefault()
+//   let more = parseInt(e.target.previousElementSibling.innerText) + 1
 
-  fetch(`http://localhost:3000/toys/${e.target.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
+//   fetch(`http://localhost:3000/toys/${e.target.id}`, {
+//       method: "PATCH",
+//       headers: {
+//         "Content-Type": "application/json",
+//         "Accept": "application/json"
 
-      },
-      body: JSON.stringify({
-        "likes": more
-      })
-    })
-    .then(res => res.json())
-    .then((like_obj => {
-      e.target.previousElementSibling.innerText = `${more} likes`;
-    }))
-}
+//       },
+//       body: JSON.stringify({
+//         "likes": more
+//       })
+//     })
+//     .then(res => res.json())
+//     .then((like_obj => {
+//       e.target.previousElementSibling.innerText = `${more} likes`;
+//     }))
+// }
 
 function renderToys(toy) {
   let h2 = document.createElement('h2')

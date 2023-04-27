@@ -1,4 +1,4 @@
-let divCollect = document.querySelector('#toy-collection')
+let divCollect = document.querySelector('#amiibo-collection')
 let gameDropdown = document.querySelector('#gameSelection')
 let amiiboData = null
 let selectedGameSeries = "blank"
@@ -69,7 +69,7 @@ function renderAmiiboHtml(amiibo) {
 
   let img = document.createElement('img')
   img.setAttribute('src', amiibo.image)
-  img.setAttribute('class', 'toy-avatar')
+  img.setAttribute('class', 'amiibo-avatar')
 
   let p = document.createElement('p')
   p.innerText = `Game Series: ${amiibo.gameSeries} \n Amiibo Series: ${amiibo.amiiboSeries}`

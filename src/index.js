@@ -76,6 +76,7 @@ function renderAmiiboHtml(amiibo) {
 
   let divCard = document.createElement('div')
   divCard.setAttribute('class', 'card')
+  divCard.setAttribute('id', 'amiiboCard')
   divCard.append(h2, img, p)
   divCollect.append(divCard)
 }
@@ -100,8 +101,8 @@ function intEventListeners() {
 
 // event listener for card style change
 function intMouseOver() {
-  div.card.addEventListener('mouseover', (event) => {
-    div.card.class = "card-2";
+  document.querySelector('#amiiboCard').addEventListener('mouseover', (event) => {
+    document.querySelector('#amiiboCard').class = "card-2";
  })
  div.card.addEventListener('mouseleave', (event) => {
   div.card.class = "card";

@@ -53,9 +53,9 @@ function renderAmiibo() {
 
 // selectively render cards
 function conditionalRender(amiibo) {
-  // if((selectedGameSeries !== amiibo.gameSeries) && (selectedGameSeries !== "blank")) {
-  //   return
-  // }
+  if((selectedGameSeries !== amiibo.gameSeries) && (selectedGameSeries !== "blank")) {
+    return
+  }
   if((searchInput !== "") && (amiibo.Name.toLowerCase().includes(searchInput))) {
     return
   }

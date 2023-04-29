@@ -3,7 +3,7 @@ let gameDropdown = document.querySelector('#gameSelection')
 let amiiboData = null
 let selectedGameSeries = "blank"
 let searchInput = ""
-let searchBar = document.getElementById('#myInput')
+let searchBar = document.querySelector('#myInput')
 
 function getAmiibo() {
     return fetch('https://www.amiiboapi.com/api/amiibo')
@@ -56,7 +56,7 @@ function conditionalRender(amiibo) {
   if((selectedGameSeries !== amiibo.gameSeries) && (selectedGameSeries !== "blank")) {
     return
   }
-  if((searchInput !== "") && (amiibo.Name.toLowerCase().includes(searchInput))) {
+  if((searchInput !== "") && (!amiibo.character.toLowerCase().includes(searchInput))) {
     return
   }
   renderAmiiboHtml(amiibo) 

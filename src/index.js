@@ -100,14 +100,14 @@ function intEventListeners() {
 }
 
 // event listener for card style change
-// function intMouseOver() {
-//   document.querySelector('#amiiboCard').addEventListener('mouseover', (event) => {
-//     document.querySelector('#amiiboCard').class = "card-2";
-//  })
-//  div.card.addEventListener('mouseleave', (event) => {
-//   div.card.class = "card";
-//  })
-// }
+function intMouseOver() {
+  document.querySelector('#amiiboCard').addEventListener('mouseover', (event) => {
+    document.querySelector('#amiiboCard').class = "card-2";
+ })
+ div.card.addEventListener('mouseleave', (event) => {
+  div.card.class = "card";
+ })
+}
 
 // event listenter for seachbar
 function intSearchBar() {
@@ -122,6 +122,6 @@ function intSearchBar() {
 document.addEventListener("DOMContentLoaded", (event) => {
   intData()
   intEventListeners()
-  // intMouseOver()
+  intMouseOver()
   intSearchBar()
 });

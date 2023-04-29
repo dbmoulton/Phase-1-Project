@@ -10,6 +10,22 @@ function getAmiibo() {
       .then(res => res.json())
 }
 
+// initialize json data
+function intData() {
+  getAmiibo().then(amiibos => {
+  amiiboData = amiibos.amiibo
+  renderAmiibo()
+  makeGameList()
+  })
+}
+
+// manipulate data
+function renderAmiibo() {
+  removeChildren(divCollect)
+  amiiboData.forEach(data => {
+    conditionalRender(data)
+  })
+}
 
 // create an array for the dropdown
 function makeGameList(){
@@ -43,25 +59,6 @@ function removeChildren(node) {
   }
 }
 
-// grab json data
-function renderAmiibo() {
-  removeChildren(divCollect)
-  amiiboData.forEach(data => {
-    conditionalRender(data)
-  })
-}
-
-// selectively render cards
-function conditionalRender(amiibo) {
-  if((selectedGameSeries !== amiibo.gameSeries) && (selectedGameSeries !== "blank")) {
-    return
-  }
-  if((searchInput !== "") && (!amiibo.character.toLowerCase().includes(searchInput))) {
-    return
-  }
-  renderAmiiboHtml(amiibo) 
-}
-
 // create cards
 function renderAmiiboHtml(amiibo) {
   let h2 = document.createElement('h2')
@@ -81,13 +78,15 @@ function renderAmiiboHtml(amiibo) {
   divCollect.append(divCard)
 }
 
-// initialize json data
-function intData() {
-  getAmiibo().then(amiibos => {
-  amiiboData = amiibos.amiibo
-  renderAmiibo()
-  makeGameList()
-  })
+// selectively render cards
+function conditionalRender(amiibo) {
+  if((selectedGameSeries !== amiibo.gameSeries) && (selectedGameSeries !== "blank")) {
+    return
+  }
+  if((searchInput !== "") && (!amiibo.character.toLowerCase().includes(searchInput))) {
+    return
+  }
+  renderAmiiboHtml(amiibo) 
 }
 
 // event listener for dropdown filter

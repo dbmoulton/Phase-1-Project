@@ -75,9 +75,9 @@ function renderAmiiboHtml(amiibo) {
   p.innerText = `Game Series: ${amiibo.gameSeries} \n Amiibo Series: ${amiibo.amiiboSeries}`
 
   let divCard = document.createElement('div')
-  divCard.setAttribute('class', 'card')
-  divCard.setAttribute('id', 'amiiboCard')
+  divCard.setAttribute('class', 'card-2')
   divCard.append(h2, img, p)
+  addHover(divCard)
   divCollect.append(divCard)
 }
 
@@ -100,12 +100,12 @@ function intEventListeners() {
 }
 
 // event listener for card style change
-function intMouseOver() {
-  document.querySelector('#amiiboCard').addEventListener('mouseover', (event) => {
-    document.querySelector('#amiiboCard').class = "card-2";
+function addHover(ele) {
+  ele.addEventListener('mouseover', (event) => {
+    ele.setAttribute('class', 'card');
  })
- div.card.addEventListener('mouseleave', (event) => {
-  div.card.class = "card";
+ ele.addEventListener('mouseleave', (event) => {
+  ele.setAttribute('class', 'card-2');
  })
 }
 
@@ -122,6 +122,5 @@ function intSearchBar() {
 document.addEventListener("DOMContentLoaded", (event) => {
   intData()
   intEventListeners()
-  intMouseOver()
   intSearchBar()
 });

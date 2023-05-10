@@ -8,12 +8,18 @@ Amiibos can be found via three filter options
 2. Filter by game series
 3. Search by character name within a game series
 
-Upon inital load the site will load all currently available Amiibos. To search for a specific character by name start typing their name in the search bar for instant results.\
-IMAGE\
-Not sure of the name of the character? Try filtering by game title.\
-IMAGE\
-If you'd only like to see the Amiibos of a certain character from a specific game, select the game and then type the character name in the search bar. Example: Only Zelda from The Legend of Zelda\
-Image
+Upon inital load the site will load all currently available Amiibos. To search for a specific character by name start typing their name in the search bar for instant results.
+
+![](Images/Example1.gif)
+
+Not sure of the name of the character? Try filtering by game title.
+
+![](Images/Example2.gif)
+
+If you'd only like to see the Amiibos of a certain character from a specific game, select the game and then type the character name in the search bar.\
+Example: Only Zelda from The Legend of Zelda
+
+![](Images/Example3.gif)
 
 ### Sources
 * [Mario Wiki](https://www.mariowiki.com)

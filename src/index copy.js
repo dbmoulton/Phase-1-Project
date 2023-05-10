@@ -98,6 +98,15 @@ function intEventListeners() {
   })
 }
 
+// event listenter for seachbar
+function intSearchBar() {
+  searchBar.addEventListener("keyup", (event) => {
+    searchInput = searchBar.value;
+    searchInput = searchInput.toLowerCase();
+    renderAmiibo()
+  })
+}
+
 // event listener for card style change
 function addHover(ele) {
   ele.addEventListener('mouseover', (event) => {
@@ -108,18 +117,20 @@ function addHover(ele) {
  })
 }
 
-// event listenter for seachbar
-function intSearchBar() {
-  searchBar.addEventListener("keyup", (event) => {
-    searchInput = searchBar.value;
-    searchInput = searchInput.toLowerCase();
-    renderAmiibo()
-  })
-}
 
+// event listener for card style change
+function addHover(ele) {
+  ele.addEventListener('mouseover', (event) => {
+    ele.setAttribute('class', 'card');
+ })
+ ele.addEventListener('mouseleave', (event) => {
+  ele.setAttribute('class', 'card-2');
+ })
+}
 
 document.addEventListener("DOMContentLoaded", (event) => {
   intData()
   intEventListeners()
   intSearchBar()
+  addHover()
 });

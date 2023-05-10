@@ -107,16 +107,26 @@ function intSearchBar() {
   })
 }
 
-// event listener for card style change
-function addHover(ele) {
-  ele.addEventListener('mouseover', (event) => {
-    ele.setAttribute('class', 'card');
- })
- ele.addEventListener('mouseleave', (event) => {
-  ele.setAttribute('class', 'card-2');
- })
-}
 
+
+// create cards
+function renderAmiiboHtml(amiibo) {
+  let h2 = document.createElement('h2')
+  h2.innerText = amiibo.name
+
+  let img = document.createElement('img')
+  img.setAttribute('src', amiibo.image)
+  img.setAttribute('class', 'amiibo-avatar')
+
+  let p = document.createElement('p')
+  p.innerText = `Game Series: ${amiibo.gameSeries} \n Amiibo Series: ${amiibo.amiiboSeries}`
+
+  let divCard = document.createElement('div')
+  divCard.setAttribute('class', 'card-2')
+  divCard.append(h2, img, p)
+  addHover(divCard)
+  divCollect.append(divCard)
+}
 
 // event listener for card style change
 function addHover(ele) {
@@ -132,5 +142,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
   intData()
   intEventListeners()
   intSearchBar()
-  addHover()
 });

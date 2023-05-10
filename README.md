@@ -12,7 +12,7 @@ Upon inital load the site will load all currently available Amiibos. To search f
 IMAGE\
 Not sure of the name of the character? Try filtering by game title.\
 IMAGE\
-If you'd only like to see the Amiibos of a certain character from a specific game, select the game and then type the character name in the search bar. Example: Only Mario from Super Smash Bros\
+If you'd only like to see the Amiibos of a certain character from a specific game, select the game and then type the character name in the search bar. Example: Only Zelda from The Legend of Zelda\
 Image
 
 ### Sources

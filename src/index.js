@@ -5,6 +5,7 @@ let selectedGameSeries = "blank"
 let searchInput = ""
 let searchBar = document.querySelector('#myInput')
 
+// inital fetch request
 function getAmiibo() {
     return fetch('https://www.amiiboapi.com/api/amiibo')
       .then(res => res.json())
@@ -117,7 +118,7 @@ function intSearchBar() {
   })
 }
 
-
+// wait for DOM to load
 document.addEventListener("DOMContentLoaded", (event) => {
   intData()
   intEventListeners()
